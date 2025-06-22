@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TiJa Eiscafé – Bestellungen</title>
+  <link rel="stylesheet" href="style.css" />
+ <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="script.js" defer></script>
+
+</head>
+<body>
+
+  <h1>🍦 Willkommen im TiJa Eiscafé!</h1>
+
+  <label for="name">👤 Dein Name <span style="color: red">*</span>:</label>
+  <input type="text" id="name" placeholder="Max Mustermann" required />
+
+  <fieldset>
+    <legend>🍨 Wähle deine Eissorten:</legend>
+    <label><input type="checkbox" class="ice" value="Schokolade" id="ice1" onclick="toggleScoopMenu('ice1')">Schokolade</label>
+    <label><input type="checkbox" class="ice" value="Vanille" id="ice2" onclick="toggleScoopMenu('ice2')">Vanille</label>
+    <label><input type="checkbox" class="ice" value="Erdbeere" id="ice3" onclick="toggleScoopMenu('ice3')">Erdbeere</label>
+  </fieldset>
+
+  <!-- Extra Auswahl für Kugeln bei jeder Eissorte -->
+  <div id="scoops_ice1" class="scoops-menu hidden">
+    <legend>🔢 Anzahl der Schokoladenkugeln:</legend>
+    <select id="scoops1">
+      <option value="1">1 Kugel</option>
+      <option value="2">2 Kugeln</option>
+      <option value="3">3 Kugeln</option>
+    </select>
+  </div>
+
+  <div id="scoops_ice2" class="scoops-menu hidden">
+    <legend>🔢 Anzahl der Vanillekugeln:</legend>
+    <select id="scoops2">
+      <option value="1">1 Kugel</option>
+      <option value="2">2 Kugeln</option>
+      <option value="3">3 Kugeln</option>
+    </select>
+  </div>
+
+  <div id="scoops_ice3" class="scoops-menu hidden">
+    <legend>🔢 Anzahl der Erdbeerkugeln:</legend>
+    <select id="scoops3">
+      <option value="1">1 Kugel</option>
+      <option value="2">2 Kugeln</option>
+      <option value="3">3 Kugeln</option>
+    </select>
+  </div>
+
+  <fieldset>
+    <legend>✨ Toppings:</legend>
+    <label><input type="checkbox" class="topping" value="Schokostreusel">Schokostreusel</label>
+    <label><input type="checkbox" class="topping" value="Waffeln">Waffeln</label>
+    <label><input type="checkbox" class="topping" value="Karamellsauce">Karamellsauce</label>
+    <label><input type="checkbox" class="topping" value="Bunte Streusel">Bunte Streusel</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>🥤 Getränkewahl:</legend>
+    <label><input type="radio" name="drinkChoice" value="keine" onclick="toggleDrinks(false); disableFields(false);">Kein Getränk</label>
+    <label><input type="radio" name="drinkChoice" value="getraenke" onclick="toggleDrinks(true); disableFields(false);">Ich möchte ein Getränk</label>
+    <label><input type="radio" name="drinkChoice" value="nurgetraenk" onclick="toggleDrinks(true); disableFields(true);">Ich möchte nur ein Getränk und kein Eis</label>
+  </fieldset>
+
+  <div id="drinksMenu" class="hidden">
+    <select id="drinks">
+      <option value="Cola">Cola</option>
+      <option value="Wasser">Wasser</option>
+      <option value="Limo">Limo</option>
+    </select>
+  </div>
+
+  <button onclick="sendOrder()">Bestellen 📝</button>
+  <button id="rechnungButton">Rechnung anzeigen 🧾 </button>
+  <div id="smiley" class="hidden">😂</div>
+
+  <div id="status"></div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
