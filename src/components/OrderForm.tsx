@@ -485,13 +485,13 @@ const OrderForm: React.FC = () => {
               disabled={isSubmitting}
               className="flex-1 bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
             >
-              {isSubmitting ? 'Wird gesendet...' : 'Bestellung absenden'}
+              {isSubmitting ? 'Wird gesendet...' : 'Bestellung absenden✔️'}
             </button>
             <button
               onClick={() => setShowSmiley(true)}
               className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
             >
-              Rechnung anzeigen
+              Rechnung anzeigen✔️
             </button>
           </div>
         </div>
