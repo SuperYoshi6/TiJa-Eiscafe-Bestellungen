@@ -14,7 +14,7 @@ function App() {
   };
 
   const checkPassword = () => {
-    if (password === 'Jeremy2025') {
+    if (password === 'Küche2025') {
       setIsKitchenUnlocked(true);
       setCurrentView('kitchen');
       setShowPasswordPrompt(false);
